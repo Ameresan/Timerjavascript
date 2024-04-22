@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           .style1{
+            border: 2px solid black;
+            width: 500px;
+            height: 500px;
+            /* border-radius: 50px; */
+            /* display: flex; */
+            /* justify-content: space-around; */
+            
+            
+           }
+           body{
+            display: flex;
+            justify-content: center;
+           }
+           .btnn{
+            display: flex;
+            justify-content: space-evenly;
+            
+            height: 400px;
+            align-items: center;
+            /* background-color: aquamarine; */
+
+           }
+           #click1{
+            height: 100px;
+            width: 100px;
+           }
+           #click2{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: red;
+            color: black;
+           }
+           #click3{
+            height: 100px;
+            width: 100px;
+           }
+           #result{
+            display: flex;
+            justify-content: space-around;
+           }
+           #imgd{
+            display: none;
+            color: rgb(173, 8, 110);
+           }
+
+    </style>
+</head>
+<body>
+    <div class="style1">
+        <div id="result">
+        
+        <h1>Set The Timer</h1>
+<h1 id="total">kkkk</h1>
+</div>
+<div id="imgd" >
+ <center><h1 >ohh why stop me?????</h1></center>
+</div>
+<div class="btnn">
+<button id="click1">start</button><br><br>
+
+<button id="click2">stop</button><br><br>
+<button id="click3">RESTART</button><br><br>
+</div>
+</div>
+
+</body>
+<script>
+    var a=document.getElementById("total");
+    var b=document.getElementById("click1");
+    var c=document.getElementById("click2");
+    var d=document.getElementById("click3");
+    var e=document.getElementById("imgd")
+    
+    let count=0;
+    let intevalID
+    // a.innerHTML=count;
+    
+     function amrish(){
+        a.innerHTML=count + "S";
+        count++;
+        
+    }
+    b.addEventListener("click",function(){
+        intevalID=setInterval(amrish,1000)
+         a.style.color="red";
+         e.style.display="none";
+       
+        b.disabled=true;
+        c.disabled=false;
+        d.disabled=true;
+    });
+    c.addEventListener("click",function(){
+        clearInterval(intevalID);
+        a.style.color="green";
+        e.style.display="block";
+        console.log(count);
+        b.disabled=false;
+        d.disabled=false;
+        c.disabled=true;
+        
+    });
+    d.addEventListener("click",function(){
+        clearInterval(intevalID);
+        count=0;
+        a.innerHTML=count;
+        d.disabled=true;
+        a.style.color="skyblue"
+        e.style.display="none";
+        
+    })
+    
+
+    
+
+</script>
+
+
+    
+    
+
+
+</html>
